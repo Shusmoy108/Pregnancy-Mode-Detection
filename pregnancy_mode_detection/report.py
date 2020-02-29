@@ -1,5 +1,5 @@
 class Report:
-	def __init__(self, pname, hname,age,uterus,fetus,bpd,crl,fl,ac,efw,edd,pl,gage,fhb,fm,presentation,lv,diabetis,precz):
+	def __init__(self,pname, hname,age,uterus,fetus,bpd,crl,fl,ac,efw,edd,pl,gage,fhb,fm,presentation,lv,diabetis,precz):
 		self.pname = pname
 		self.hname = hname
 		self.age = age

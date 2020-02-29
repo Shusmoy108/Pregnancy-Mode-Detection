@@ -26,9 +26,11 @@ def showreport(request):
     for r in x: 
         rep=Report(r['pname'],r['hname'],r['age'],r['uterus'],r['fetus'],r['bpd'],r['crl'],r['fl'],r['ac'],r['efw'],r['edd'],r['pl'],r['gage'],r['fhb'],r['fm'],r['presentation'],r['lv'],r['diabetis'],r['precz'])
         rep.controlword=r['controlword']
+        rep.id=r['_id']
         rep.safe=r['safe']
+        #print(rep.id)
         reports.append(rep)
-    print(reports)
+    #print(reports)
 
     return render(request,'reports.html',{'title': "Pregnancy Mode Detection",'reports':reports})
 def report(request,id):
@@ -36,8 +38,27 @@ def report(request,id):
     #   print(r.get('id'))
     #   id= r.get('id')
 
-      print(reports)
-      return render(request,'report.html',{'title': "Pregnancy Mode Detection",'report':reports[int(id)-1]})
+      #print(reports)
+      return render(request,'report.html',{'title': "Pregnancy Mode Detection",'report':reports[int(id)-1], 'id':id})
+def safe(request,id):
+    #   r = request.GET
+    #   print(r.get('id'))
+    #   id= r.get('id')
+    myquery = { "_id": reports[int(id)-1].id }
+    newvalues = { "$set": { "safe": "1" } }
+    pregnancy_data.update_one(myquery, newvalues)
+      #print(reports)
+    return redirect('showreports')
+def unsafe(request,id):
+    #   r = request.GET
+    #   print(r.get('id'))
+    #   id= r.get('id')
+    #print(reports[int(id)-1].id )
+    myquery = { "_id": reports[int(id)-1].id }
+    newvalues = { "$set": { "safe": "0" } }
+    pregnancy_data.update_one(myquery, newvalues)
+      #print(reports)
+    return redirect('showreports')
 
 def login(request):
     if request.method == 'POST':
@@ -68,14 +89,14 @@ def addreport(request):
     # print(x)
     if request.method == 'POST':
         r = request.POST
-        print(r.get('gage'))
-        print(r.get('FHB'))
+        # print(r.get('gage'))
+        # print(r.get('FHB'))
         #print(r.get('pname')+r.get('hname')+r.get('age')+r.get('uterus')+r.get('fetus')+r.get('BPD')+r.get('CRL')+r.get('FL')+r.get('AC')+r.get('EFW')+r.get('EDD')+r.get('PL')+r.get('gage')+r.get('FHB')+r.get('FM')+r.get('presentation')+r.get('LV')+r.get('Diabetis')+r.get('PC'))
         rep= Report(r.get('pname'),r.get('hname'),r.get('age'),r.get('uterus'),r.get('fetus'),r.get('BPD'),r.get('CRL'),r.get('FL'),r.get('AC'),r.get('EFW'),r.get('EDD'),r.get('PL'),r.get('gage'),r.get('FHB'),r.get('FM'),r.get('presentation'),r.get('LV'),r.get('Diabetis'),r.get('PC'))
         err= rep.validate()
         #print(err)
         if(err!={}):
-             return render(request,'form.html', {'title': "Pregnancy Mode Detection",'err':err})
+             return render(request,'form.html', {'title': "Pregnancy Mode Detection",'err':err,'gerr':'Fill Up all the fields properly'})
 
         # uterus = r.get('uterus')
         # fetus = r.get('fetus')
@@ -88,7 +109,7 @@ def addreport(request):
         # else:
         else:
             rep.createcontrol()
-            report_json = json.dumps(rep.__dict__)
+            #report_json = json.dumps(rep.__dict__)
             # print(report_json)
             pregnancy_data.insert_one(rep.__dict__)
             #x = db.data.insert_one(rep.__dict__)
