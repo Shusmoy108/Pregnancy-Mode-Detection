@@ -21,19 +21,22 @@ def form(request):
 def showreport(request):
     x=pregnancy_data.find()
     # print(x[0])
-    reports=[]
+    #reports=[]
+    reports.clear()
     for r in x: 
         rep=Report(r['pname'],r['hname'],r['age'],r['uterus'],r['fetus'],r['bpd'],r['crl'],r['fl'],r['ac'],r['efw'],r['edd'],r['pl'],r['gage'],r['fhb'],r['fm'],r['presentation'],r['lv'],r['diabetis'],r['precz'])
         rep.controlword=r['controlword']
         rep.safe=r['safe']
         reports.append(rep)
-    #print(reports)
+    print(reports)
+
     return render(request,'reports.html',{'title': "Pregnancy Mode Detection",'reports':reports})
 def report(request,id):
     #   r = request.GET
     #   print(r.get('id'))
     #   id= r.get('id')
-      #print(id)
+
+      print(reports)
       return render(request,'report.html',{'title': "Pregnancy Mode Detection",'report':reports[int(id)-1]})
 
 def login(request):
