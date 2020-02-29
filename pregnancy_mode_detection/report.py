@@ -30,18 +30,18 @@ class Report:
 			self.controlword=self.controlword+"1"
 		else:
 			self.controlword=self.controlword+"0"
-		if int(self.bpd)>90:
+		if float(self.bpd)>90:
 			self.controlword=self.controlword+"1"
 		else:
 			self.controlword=self.controlword+"0"
 		self.controlword=self.controlword+"X" #CRL
 		self.controlword=self.controlword+"X" #FL
 		self.controlword=self.controlword+"X" #AC
-		if int(self.efw)>2.5:
+		if float(self.efw)>2.5:
 			self.controlword=self.controlword+"1"
 		else:
 			self.controlword=self.controlword+"0"
-		if int(self.edd)>37:
+		if float(self.edd)>37:
 			self.controlword=self.controlword+"1"
 		else:
 			self.controlword=self.controlword+"0"
@@ -49,11 +49,11 @@ class Report:
 			self.controlword=self.controlword+"1"
 		else:
 			self.controlword=self.controlword+"0"
-		if int(self.gage)==39:
+		if float(self.gage)==39:
 			self.controlword=self.controlword+"1"
 		else:
 			self.controlword=self.controlword+"0"
-		if int(self.fhb)>=110 and int(self.fhb)<=160:
+		if float(self.fhb)>=110 and int(self.fhb)<=160:
 			self.controlword=self.controlword+"1"
 		else:
 			self.controlword=self.controlword+"0"
@@ -81,33 +81,33 @@ class Report:
 	def validate(self):
 		error={}
 		print(self.pname)
-		if(self.pname==None):
+		if(self.pname==""):
 			error["pname"]="A patient name must be given"
-		if(self.hname==None):
+		if(self.hname==""):
 			error["hname"]="A hospital name must be given"
-		if(self.age==None):
+		if(self.age==""):
 			error["age"]="Patient age must be given"
 		if(self.fetus==None):
 			error["fetus"]="You must select a fetus type"
 		if(self.uterus==None):
 			error["uterus"]="You must select a uterus type"
-		if(self.bpd==None):
+		if(self.bpd==""):
 			error["bpd"]="Biparietal diameter must be given"
-		if(self.crl==None):
+		if(self.crl==""):
 			error["crl"]="Crown-rump-length  must be given"
-		if(self.fl==None):
+		if(self.fl==""):
 			error["fl"]="Femur length must be given"
-		if(self.ac==None):
+		if(self.ac==""):
 			error["ac"]="Abdominal circumference must be given"
-		if(self.efw==None):
+		if(self.efw==""):
 			error["efw"]="Estimated fetal weight must be given"
-		if(self.edd==None):
+		if(self.edd==""):
 			error["edd"]="Expected date of delivery must be given"
 		if(self.pl==None):
 			error["pl"]="You must select a Placental localization type"
-		if(self.gage==None):
+		if(self.gage==""):
 			error["gage"]="Gestational age must be given"
-		if(self.fhb==None):
+		if(self.fhb==""):
 			error["fhb"]="Fetal Heart beat must be given"
 		if(self.fm==None):
 			error["fm"]="Fetal Movement must be selected"

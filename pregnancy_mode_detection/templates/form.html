@@ -4,6 +4,7 @@
 	<form  method="post">
 		{% csrf_token %}
 		<h1>Ultasonography Pregnancy Report </h1><br/>
+		<h4 class="text-danger">{{gerr}} </h4><br/>
 		<div class="form-group">
 			<label for="pname">Patient Name:</label>
 			<input type="text" class="form-control" placeholder="Enter a patient name" name="pname">
@@ -16,7 +17,7 @@
 		  <small class="text-danger">{{err.hname}}</small>
 		  <div class="form-group">
 			<label for="age">Age:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" name="age">
+			<input type="number"  class="form-control" placeholder="Enter a number" name="age">
 		  </div>
 		  <small class="text-danger">{{err.age}}</small>
 		<div class="form-group">
@@ -45,32 +46,32 @@
 		  <small class="text-danger">{{err.fetus}}</small>
 		  <div class="form-group">
 			<label for="BPD">Bipaietal Diameter:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" name="BPD">
+			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="BPD">
 		  </div>
 		  <small class="text-danger">{{err.bpd}}</small>
 		  <div class="form-group">
 			<label for="CRL">Crown-rump-length:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" name="CRL">
+			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="CRL">
 		  </div>
 		  <small class="text-danger">{{err.crl}}</small>
 		  <div class="form-group">
 			<label for="FL">Femur Length:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" name="FL">
+			<input type="number" class="form-control" step="0.01" placeholder="Enter a number" name="FL">
 		  </div>
 		  <small class="text-danger">{{err.fl}}</small>
 		  <div class="form-group">
 			<label for="AC">Abdominal Circumference:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" name="AC">
+			<input type="number" class="form-control" step="0.01" placeholder="Enter a number" name="AC">
 		  </div>
 		  <small class="text-danger">{{err.ac}}</small>
 		  <div class="form-group">
 			<label for="EFW">Estimated Fetal Weight:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" name="EFW">
+			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="EFW">
 		  </div>
 		  <small class="text-danger">{{err.efw}}</small>
 		  <div class="form-group">
 			<label for="EDD">Expected Date of Delivery:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" name="EDD">
+			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="EDD">
 		  </div>
 		  <small class="text-danger">{{err.edd}}</small>
 		  <div class="form-group">
@@ -101,12 +102,12 @@
 		  <small class="text-danger">{{err.pl}}</small>
 		  <div class="form-group">
 			<label for="gage">Gestational age:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" name="gage">
+			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="gage">
 		  </div>
 		  <small class="text-danger">{{err.gage}}</small>
 		  <div class="form-group">
 			<label for="FHB">Fetal Heart beat:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" name="FHB">
+			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="FHB">
 		  </div>
 		  <small class="text-danger">{{err.fhb}}</small>
 		  <div class="form-group">
