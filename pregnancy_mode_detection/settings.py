@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'sz=ka$2!0*t$+)gog!#7!wrmrzh95g$$5-nadwc)*cy#k*v4-p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['pregnancymodedetection.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
