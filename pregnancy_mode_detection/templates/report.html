@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+	<h3>Patient Name : {{report.pname}}</h3>
+	<h3>Hospital Name : {{report.hname}}</h3>
+	<h3>Patient Age : {{report.age}}</h3>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Attributes</th>
+		<th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+		<tr>
+			<td>Uterus</td>
+			<td>{{report.uterus}}</td>
+		</tr>
+		<tr>
+			<td>Fetus</td>
+			<td>{{report.fetus}}</td>
+		</tr>
+		<tr>
+			<td>Biparietal diameter</td>
+			<td>{{report.bpd}}</td>
+		</tr>
+		<tr>
+			<td>Crown-rump-length </td>
+			<td>{{report.crl}}</td>
+		</tr>
+		<tr>
+			<td>femur lenght</td>
+			<td>{{report.fl}}</td>
+		</tr>
+		<tr>
+			<td>abdominal circumference </td>
+			<td>{{report.ac}}</td>
+		</tr>
+		<tr>
+			<td>Estimated fetal weight</td>
+			<td>{{report.efw}}</td>
+		</tr>
+		<tr>
+			<td>Expected date of delivery</td>
+			<td>{{report.edd}}</td>
+		</tr>
+		<tr>
+			<td>Placental localization</td>
+			<td>{{report.pl}}</td>
+		</tr>
+		<tr>
+			<td>Gestational age</td>
+			<td>{{report.gage}}</td>
+		</tr>
+		<tr>
+			<td>Fetal Heart beat</td>
+			<td>{{report.fhb}}</td>
+		</tr>
+		<tr>
+			<td>Fetal Movement/foetal cardiac pulsation </td>
+			<td>{{report.fm}}</td>
+		</tr>
+		<tr>
+			<td>Presentation</td>
+			<td>{{report.presentation}}</td>
+		</tr>
+		<tr>
+			<td>Liquor  volume</td>
+			<td>{{report.lv}}</td>
+		</tr>
+		<tr>
+			<td>Diabetes </td>
+			<td>{{report.diabetis}}</td>
+		</tr>
+		<tr>
+			<td>Previous Czerian birth</td>
+			<td>{{report.precz}}</td>
+		</tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

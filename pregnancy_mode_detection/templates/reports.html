@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Serial Number</th>
+		<th>Patient Name</th>
+		<th>Hospital Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+		{% for report in reports %}
+	  
+		<tr onclick="/addreport/">
+			
+			<td>{{forloop.counter}}</td>
+			<td>{{report.pname}}</td>
+			<td>{{report.hname}}</td>
+			<td>{{report.age}}</td>
+			<td><a  href="/report/{{forloop.counter}}/"><button">showdetails</button></a></td>
+		  </tr>
+	
+		
+		{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
