@@ -49,6 +49,16 @@ def safe(request,id):
     pregnancy_data.update_one(myquery, newvalues)
       #print(reports)
     return redirect('showreports')
+def control(request,id):
+    #   r = request.GET
+    #   print(r.get('id'))
+    #   id= r.get('id')
+    reports[int(id)-1].createcontrol()
+    myquery = { "_id": reports[int(id)-1].id }
+    newvalues = { "$set": { "controlword": reports[int(id)-1].controlword } }
+    pregnancy_data.update_one(myquery, newvalues)
+      #print(reports)
+    return redirect('showreports')
 def unsafe(request,id):
     #   r = request.GET
     #   print(r.get('id'))

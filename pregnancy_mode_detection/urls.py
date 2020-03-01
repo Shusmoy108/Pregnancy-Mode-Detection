@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pregnancy_mode_detection.views import templateexample,form,addreport,showreport,report,login,safe,unsafe
+from pregnancy_mode_detection.views import templateexample,form,addreport,showreport,report,login,safe,unsafe,control
 urlpatterns = [
     path('', login,name="login"),
     path('admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('reports/', showreport,name="showreports"),
     path('report/<id>/', report,name="report"),
     path('safe/<id>/', safe,name="safe"),
-    path('unsafe/<id>/', unsafe,name="unsafe")
+    path('unsafe/<id>/', unsafe,name="unsafe"),
+    path('control/<id>/', control,name="unsafe"),
 ]

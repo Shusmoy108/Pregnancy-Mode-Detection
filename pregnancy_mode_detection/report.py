@@ -22,6 +22,7 @@ class Report:
 		self.safe="X"
 		self.controlword=""
 	def createcontrol(self):
+		self.controlword=""
 		if self.uterus=='Gravid':
 			self.controlword=self.controlword+"1"
 		else:
@@ -74,7 +75,7 @@ class Report:
 			self.controlword=self.controlword+"1"
 		else:
 			self.controlword=self.controlword+"0"
-		if self.presentation=='1':
+		if self.precz=='1':
 			self.controlword=self.controlword+"1"
 		else:
 			self.controlword=self.controlword+"0"

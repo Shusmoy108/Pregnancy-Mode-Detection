@@ -6,11 +6,19 @@
 			<h3>Patient Name : {{report.pname}}</h3>
 			<h3>Hospital Name : {{report.hname}}</h3>
 			<h3>Patient Age : {{report.age}}</h3>
+			<h5>Control Word : {{report.controlword}}</h5>
 		</div>
 		<div class="col-sm-4">
 			<br/>
-			<a  href="/safe/{{id}}/"><button class="btn btn-success" style="margin: 10;">Safe</button></a><br/>
+			{% if report.safe == "1" %}
 			<a  href="/unsafe/{{id}}/"><button class="btn btn-danger">UnSafe</button></a>
+			{% else %}
+			<a  href="/safe/{{id}}/"><button class="btn btn-success">Safe</button></a>
+		
+			{% endif %}
+			<br/>
+			<br/>
+			<a  href="/control/{{id}}/"><button class="btn btn-primary">Genereate/Update Control</button></a>
 		</div>
 
 	</div>
@@ -25,7 +33,12 @@
     <tbody>
 		<tr>
 			<td>Safe</td>
-			<td>{{report.safe}}</td>
+			{% if report.safe == "1" %}
+			<td>Yes</td>
+			{% else %}
+			<td>No</td>
+			{% endif %}
+			
 		</tr>
 		<tr>
 			<td>Uterus</td>
@@ -44,11 +57,11 @@
 			<td>{{report.crl}}</td>
 		</tr>
 		<tr>
-			<td>femur lenght</td>
+			<td>Femur length</td>
 			<td>{{report.fl}}</td>
 		</tr>
 		<tr>
-			<td>abdominal circumference </td>
+			<td>Abdominal circumference </td>
 			<td>{{report.ac}}</td>
 		</tr>
 		<tr>
@@ -72,8 +85,12 @@
 			<td>{{report.fhb}}</td>
 		</tr>
 		<tr>
-			<td>Fetal Movement/foetal cardiac pulsation </td>
-			<td>{{report.fm}}</td>
+			<td>Fetal Movement/Foetal Cardiac Pulsation </td>
+			{% if report.fm == "1" %}
+			<td>Yes</td>
+			{% else %}
+			<td>No</td>
+			{% endif %}
 		</tr>
 		<tr>
 			<td>Presentation</td>
@@ -85,11 +102,19 @@
 		</tr>
 		<tr>
 			<td>Diabetes </td>
-			<td>{{report.diabetis}}</td>
+			{% if report.diabetis == "1" %}
+			<td>Yes</td>
+			{% else %}
+			<td>No</td>
+			{% endif %}
 		</tr>
 		<tr>
 			<td>Previous Czerian birth</td>
-			<td>{{report.precz}}</td>
+			{% if report.precz == "1" %}
+			<td>Yes</td>
+			{% else %}
+			<td>No</td>
+			{% endif %}
 		</tr>
 		
     </tbody>
