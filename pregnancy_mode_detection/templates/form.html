@@ -1,190 +1,458 @@
-{% extends "base.html" %}
-{% block body %}
+{% extends "base.html" %} {% block body %}
 <div class="container">
-	<form  method="post">
-		{% csrf_token %}
-		<h1>Ultasonography Pregnancy Report </h1><br/>
-		<h4 class="text-danger">{{gerr}} </h4><br/>
-		<div class="form-group">
-			<label for="pname">Patient Name:</label>
-			<input type="text" class="form-control" placeholder="Enter a patient name" name="pname">
-		  </div>
-		<small class="text-danger">{{err.pname}}</small>
-		 <div class="form-group">
-			<label for="hname">Hospital Name:</label>
-			<input type="text" class="form-control" placeholder="Enter a hospital name" name="hname">
-		  </div>
-		  <small class="text-danger">{{err.hname}}</small>
-		  <div class="form-group">
-			<label for="age">Age:</label>
-			<input type="number"  class="form-control" placeholder="Enter a number" name="age">
-		  </div>
-		  <small class="text-danger">{{err.age}}</small>
-		<div class="form-group">
-		  <label for="uterus">Uterus</label>
-		  <div class="custom-control custom-radio custom-control-inline">
-			<input type="radio" class="custom-control-input" id="Gravid" name="uterus" value="Gravid">
-			<label class="custom-control-label" for="Gravid">Gravid</label>
-		  </div>
-		  <div class="custom-control custom-radio custom-control-inline">
-			<input type="radio" class="custom-control-input" id="none" name="uterus" value="none">
-			<label class="custom-control-label" for="none">None</label>
-		  </div>
-		</div>
-		<small class="text-danger">{{err.uterus}}</small>
-		<div class="form-group">
-			<label for="fetus">Fetus</label>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="Single" name="fetus" value="Single">
-			  <label class="custom-control-label" for="Single">Single</label>
-			</div>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="Multiple" name="fetus" value="Multiple">
-			  <label class="custom-control-label" for="Multiple">Multiple</label>
-			</div>
-		  </div>
-		  <small class="text-danger">{{err.fetus}}</small>
-		  <div class="form-group">
-			<label for="BPD">Bipaietal Diameter:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="BPD">
-		  </div>
-		  <small class="text-danger">{{err.bpd}}</small>
-		  <div class="form-group">
-			<label for="CRL">Crown-rump-length:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="CRL">
-		  </div>
-		  <small class="text-danger">{{err.crl}}</small>
-		  <div class="form-group">
-			<label for="FL">Femur Length:</label>
-			<input type="number" class="form-control" step="0.01" placeholder="Enter a number" name="FL">
-		  </div>
-		  <small class="text-danger">{{err.fl}}</small>
-		  <div class="form-group">
-			<label for="AC">Abdominal Circumference:</label>
-			<input type="number" class="form-control" step="0.01" placeholder="Enter a number" name="AC">
-		  </div>
-		  <small class="text-danger">{{err.ac}}</small>
-		  <div class="form-group">
-			<label for="EFW">Estimated Fetal Weight:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="EFW">
-		  </div>
-		  <small class="text-danger">{{err.efw}}</small>
-		  <div class="form-group">
-			<label for="EDD">Expected Date of Delivery:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="EDD">
-		  </div>
-		  <small class="text-danger">{{err.edd}}</small>
-		  <div class="form-group">
-			<label for="PL">Placental localization</label><br/>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="Anterior" name="PL" value="Anterior">
-			  <label class="custom-control-label" for="Anterior">Anterior</label>
-			</div>
-			
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="Posterior" name="PL" value="Posterior">
-			  <label class="custom-control-label" for="Posterior">Posterior</label>
-			</div>
+  <form method="post">
+    {% csrf_token %}
+    <h1>Ultasonography Pregnancy Report</h1>
+    <br />
+    <h4 class="text-danger">{{gerr}}</h4>
+    <br />
+    <div class="form-group">
+      <label for="pname">Patient Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter a patient name"
+        name="pname"
+      />
+    </div>
+    <small class="text-danger">{{err.pname}}</small>
+    <div class="form-group">
+      <label for="hname">Hospital Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter a hospital name"
+        name="hname"
+      />
+    </div>
+    <small class="text-danger">{{err.hname}}</small>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter a number"
+        name="age"
+      />
+    </div>
+    <small class="text-danger">{{err.age}}</small>
+    <div class="form-group">
+      <label for="uterus">Uterus</label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Gravid"
+          name="uterus"
+          value="Gravid"
+        />
+        <label class="custom-control-label" for="Gravid">Gravid</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="none"
+          name="uterus"
+          value="none"
+        />
+        <label class="custom-control-label" for="none">None</label>
+      </div>
+    </div>
+    <small class="text-danger">{{err.uterus}}</small>
+    <div class="form-group">
+      <label for="fetus">Fetus</label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Single"
+          name="fetus"
+          value="Single"
+        />
+        <label class="custom-control-label" for="Single">Single</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Multiple"
+          name="fetus"
+          value="Multiple"
+        />
+        <label class="custom-control-label" for="Multiple">Multiple</label>
+      </div>
+    </div>
+    <small class="text-danger">{{err.fetus}}</small>
+    <div class="form-group">
+      <label for="BPD">Bipaietal Diameter:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter a number"
+        step="0.01"
+        name="BPD"
+      />
+    </div>
+    <small class="text-danger">{{err.bpd}}</small>
+    <div class="form-group">
+      <label for="CRL">Crown-rump-length:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter a number"
+        step="0.01"
+        name="CRL"
+      />
+    </div>
+    <small class="text-danger">{{err.crl}}</small>
+    <div class="form-group">
+      <label for="FL">Femur Length:</label>
+      <input
+        type="number"
+        class="form-control"
+        step="0.01"
+        placeholder="Enter a number"
+        name="FL"
+      />
+    </div>
+    <small class="text-danger">{{err.fl}}</small>
+    <div class="form-group">
+      <label for="AC">Abdominal Circumference:</label>
+      <input
+        type="number"
+        class="form-control"
+        step="0.01"
+        placeholder="Enter a number"
+        name="AC"
+      />
+    </div>
+    <small class="text-danger">{{err.ac}}</small>
+    <div class="form-group">
+      <label for="EFW">Estimated Fetal Weight:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter a number"
+        step="0.01"
+        name="EFW"
+      />
+    </div>
+    <small class="text-danger">{{err.efw}}</small>
+    <div class="form-group">
+      <label for="EDD">Expected Date of Delivery:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter a number"
+        step="0.01"
+        name="EDD"
+      />
+    </div>
+    <small class="text-danger">{{err.edd}}</small>
+    <div class="form-group">
+      <label for="PL">Placental localization</label><br />
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Anterior"
+          name="PL"
+          value="Anterior"
+        />
+        <label class="custom-control-label" for="Anterior">Anterior</label>
+      </div>
 
-			<div class="custom-control custom-radio custom-control-inline">
-				<input type="radio" class="custom-control-input" id="Fundal" name="PL" value="Fundal">
-				<label class="custom-control-label" for="Fundal">Fundal</label>
-			  </div>
-			  <div class="custom-control custom-radio custom-control-inline">
-				<input type="radio" class="custom-control-input" id="CloseInternalos" name="PL" value="CloseInternalos">
-				<label class="custom-control-label" for="CloseInternalos">Close to the Internalos</label>
-			  </div>
-			  <div class="custom-control custom-radio custom-control-inline">
-				<input type="radio" class="custom-control-input" id="CoveredInternalos" name="PL" value="CoveredInternalos">
-				<label class="custom-control-label" for="CoveredInternalos">Covered the Internalos</label>
-			  </div>
-		  </div>
-		  <small class="text-danger">{{err.pl}}</small>
-		  <div class="form-group">
-			<label for="gage">Gestational age:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="gage">
-		  </div>
-		  <small class="text-danger">{{err.gage}}</small>
-		  <div class="form-group">
-			<label for="FHB">Fetal Heart beat:</label>
-			<input type="number" class="form-control" placeholder="Enter a number" step="0.01" name="FHB">
-		  </div>
-		  <small class="text-danger">{{err.fhb}}</small>
-		  <div class="form-group">
-			<label for="FM">Fetal Movement/Foetal Cardiac Pulsation:</label>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="Yes" name="FM" value="1">
-			  <label class="custom-control-label" for="Yes">Yes</label>
-			</div>
-			
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="No" name="FM" value="0">
-			  <label class="custom-control-label" for="No">No</label>
-			</div>
-		  </div>
-		  <small class="text-danger">{{err.fm}}</small>
-		  <div class="form-group">
-			<label for="presentation">Presentation</label><br/>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="Cephalic" name="presentation" value="Cephalic">
-			  <label class="custom-control-label" for="Cephalic">Cephalic</label>
-			</div>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="Breech" name="presentation" value="Breech">
-			  <label class="custom-control-label" for="Breech">Breech</label>
-			</div>
-			<div class="custom-control custom-radio custom-control-inline">
-				<input type="radio" class="custom-control-input" id="Transverse" name="presentation" value="Transverse">
-				<label class="custom-control-label" for="Transverse">Transverse</label>
-			  </div>
-			  <div class="custom-control custom-radio custom-control-inline">
-				<input type="radio" class="custom-control-input" id="Obliquely" name="presentation" value="Obliquely">
-				<label class="custom-control-label" for="Obliquely">Obliquely</label>
-			  </div>
-		  </div>
-		  <small class="text-danger">{{err.presentation}}</small>
-		  <div class="form-group">
-			<label for="LV">Liquor Volume</label><br/>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="Adequate" name="LV" value="Adequate">
-			  <label class="custom-control-label" for="Adequate">Adequate</label>
-			</div>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="Hydramnios" name="LV" value="Hydramnios">
-			  <label class="custom-control-label" for="Hydramnios">Hydramnios</label>
-			</div>
-			<div class="custom-control custom-radio custom-control-inline">
-				<input type="radio" class="custom-control-input" id="Oligohydramnios" name="LV" value="Oligohydramnios">
-				<label class="custom-control-label" for="Oligohydramnios">Oligohydramnios</label>
-			  </div>
-		  </div>
-		  <small class="text-danger">{{err.lv}}</small>
-		  <div class="form-group">
-			<label for="Diabetis">Diabetis:</label>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="d1" name="Diabetis" value="1">
-			  <label class="custom-control-label" for="d1">Yes</label>
-			</div>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="d2" name="Diabetis" value="0">
-			  <label class="custom-control-label" for="d2">No</label>
-			</div>
-		  </div>
-		  <small class="text-danger">{{err.diabetis}}</small>
-		  <div class="form-group">
-			<label for="PC">Previously Czerian:</label>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="PC1" name="PC" value="1">
-			  <label class="custom-control-label" for="PC1">Yes</label>
-			</div>
-			<div class="custom-control custom-radio custom-control-inline">
-			  <input type="radio" class="custom-control-input" id="PC2" name="PC" value="0">
-			  <label class="custom-control-label" for="PC2">No</label>
-			</div>
-		  </div>
-		  <small class="text-danger">{{err.precz}}</small><br/>
-		<button type="submit" class="btn btn-primary">Submit</button>
-	  </form>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Posterior"
+          name="PL"
+          value="Posterior"
+        />
+        <label class="custom-control-label" for="Posterior">Posterior</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Fundal"
+          name="PL"
+          value="Fundal"
+        />
+        <label class="custom-control-label" for="Fundal">Fundal</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="CloseInternalos"
+          name="PL"
+          value="CloseInternalos"
+        />
+        <label class="custom-control-label" for="CloseInternalos"
+          >Close to the Internalos</label
+        >
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="CoveredInternalos"
+          name="PL"
+          value="CoveredInternalos"
+        />
+        <label class="custom-control-label" for="CoveredInternalos"
+          >Covered the Internalos</label
+        >
+      </div>
+    </div>
+    <small class="text-danger">{{err.pl}}</small>
+    <div class="form-group">
+      <label for="gage">Gestational age:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter a number"
+        step="0.01"
+        name="gage"
+      />
+    </div>
+    <small class="text-danger">{{err.gage}}</small>
+    <div class="form-group">
+      <label for="FHB">Fetal Heart beat:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter a number"
+        step="0.01"
+        name="FHB"
+      />
+    </div>
+    <small class="text-danger">{{err.fhb}}</small>
+    <div class="form-group">
+      <label for="FM">Fetal Movement/Foetal Cardiac Pulsation:</label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Yes"
+          name="FM"
+          value="1"
+        />
+        <label class="custom-control-label" for="Yes">Yes</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="No"
+          name="FM"
+          value="0"
+        />
+        <label class="custom-control-label" for="No">No</label>
+      </div>
+    </div>
+    <small class="text-danger">{{err.fm}}</small>
+    <div class="form-group">
+      <label for="presentation">Presentation</label><br />
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Cephalic"
+          name="presentation"
+          value="Cephalic"
+        />
+        <label class="custom-control-label" for="Cephalic">Cephalic</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Breech"
+          name="presentation"
+          value="Breech"
+        />
+        <label class="custom-control-label" for="Breech">Breech</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Transverse"
+          name="presentation"
+          value="Transverse"
+        />
+        <label class="custom-control-label" for="Transverse">Transverse</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Obliquely"
+          name="presentation"
+          value="Obliquely"
+        />
+        <label class="custom-control-label" for="Obliquely">Obliquely</label>
+      </div>
+    </div>
+    <small class="text-danger">{{err.presentation}}</small>
+    <div class="form-group">
+      <label for="LV">Liquor Volume</label><br />
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Adequate"
+          name="LV"
+          value="Adequate"
+        />
+        <label class="custom-control-label" for="Adequate">Adequate</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Hydramnios"
+          name="LV"
+          value="Hydramnios"
+        />
+        <label class="custom-control-label" for="Hydramnios">Hydramnios</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Oligohydramnios"
+          name="LV"
+          value="Oligohydramnios"
+        />
+        <label class="custom-control-label" for="Oligohydramnios"
+          >Oligohydramnios</label
+        >
+      </div>
+    </div>
+    <small class="text-danger">{{err.lv}}</small>
+    <div class="form-group">
+      <label for="PM">Placental Maturity/Grading</label><br />
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Grade1"
+          name="PM"
+          value="Grade1"
+        />
+        <label class="custom-control-label" for="Grade1">Grade 1</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Grade2"
+          name="PM"
+          value="Grade2"
+        />
+        <label class="custom-control-label" for="Grade2">Grade 2</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Grade3"
+          name="PM"
+          value="Grade3"
+        />
+        <label class="custom-control-label" for="Grade3">Grade 3</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="Grade4"
+          name="PM"
+          value="Grade4"
+        />
+        <label class="custom-control-label" for="Grade4">Grade 4</label>
+      </div>
+    </div>
+    <small class="text-danger">{{err.pm}}</small>
+    <div class="form-group">
+      <label for="FHB">Amniotic Fluid Volume:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter a number"
+        step="0.01"
+        name="AFV"
+      />
+    </div>
+    <div class="form-group">
+      <label for="FHB"> Fetal Movement:</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Enter a number"
+        step="0.01"
+        name="FM2"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Diabetis">Diabetis:</label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="d1"
+          name="Diabetis"
+          value="1"
+        />
+        <label class="custom-control-label" for="d1">Yes</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="d2"
+          name="Diabetis"
+          value="0"
+        />
+        <label class="custom-control-label" for="d2">No</label>
+      </div>
+    </div>
+    <small class="text-danger">{{err.diabetis}}</small>
+    <div class="form-group">
+      <label for="PC">Previously Czerian:</label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="PC1"
+          name="PC"
+          value="1"
+        />
+        <label class="custom-control-label" for="PC1">Yes</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="PC2"
+          name="PC"
+          value="0"
+        />
+        <label class="custom-control-label" for="PC2">No</label>
+      </div>
+    </div>
+    <small class="text-danger">{{err.precz}}</small><br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>
 
-  {% endblock %}
+{% endblock %}

@@ -1,124 +1,135 @@
-{% extends "base.html" %}
-{% block body %}
+{% extends "base.html" %} {% block body %}
 <div class="container">
-	<div class='row'>
-		<div class="col-sm-6">
-			<h3>Patient Name : {{report.pname}}</h3>
-			<h3>Hospital Name : {{report.hname}}</h3>
-			<h3>Patient Age : {{report.age}}</h3>
-			<h5>Control Word : {{report.controlword}}</h5>
-		</div>
-		<div class="col-sm-4">
-			<br/>
-			{% if report.safe == "1" %}
-			<a  href="/unsafe/{{id}}/"><button class="btn btn-danger">UnSafe</button></a>
-			{% else %}
-			<a  href="/safe/{{id}}/"><button class="btn btn-success">Safe</button></a>
-		
-			{% endif %}
-			<br/>
-			<br/>
-			<a  href="/control/{{id}}/"><button class="btn btn-primary">Genereate/Update Control</button></a>
-		</div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Patient Name : {{report.pname}}</h3>
+      <h3>Hospital Name : {{report.hname}}</h3>
+      <h3>Patient Age : {{report.age}}</h3>
+      <h5>Control Word : {{report.controlword}}</h5>
+    </div>
+    <div class="col-sm-4">
+      <br />
+      {% if report.safe == "1" %}
+      <a href="/unsafe/{{id}}/"
+        ><button class="btn btn-danger">UnSafe</button></a
+      >
+      {% else %}
+      <a href="/safe/{{id}}/"><button class="btn btn-success">Safe</button></a>
 
-	</div>
-	
-<table class="table table-bordered">
+      {% endif %}
+      <br />
+      <br />
+      <!-- <a href="/control/{{id}}/"
+        ><button class="btn btn-primary">Genereate/Update Control</button></a
+      > -->
+    </div>
+  </div>
+
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th>Attributes</th>
-		<th>Value</th>
+        <th>Value</th>
       </tr>
     </thead>
     <tbody>
-		<tr>
-			<td>Safe</td>
-			{% if report.safe == "1" %}
-			<td>Yes</td>
-			{% else %}
-			<td>No</td>
-			{% endif %}
-			
-		</tr>
-		<tr>
-			<td>Uterus</td>
-			<td>{{report.uterus}}</td>
-		</tr>
-		<tr>
-			<td>Fetus</td>
-			<td>{{report.fetus}}</td>
-		</tr>
-		<tr>
-			<td>Biparietal diameter</td>
-			<td>{{report.bpd}}</td>
-		</tr>
-		<tr>
-			<td>Crown-rump-length </td>
-			<td>{{report.crl}}</td>
-		</tr>
-		<tr>
-			<td>Femur length</td>
-			<td>{{report.fl}}</td>
-		</tr>
-		<tr>
-			<td>Abdominal circumference </td>
-			<td>{{report.ac}}</td>
-		</tr>
-		<tr>
-			<td>Estimated fetal weight</td>
-			<td>{{report.efw}}</td>
-		</tr>
-		<tr>
-			<td>Expected date of delivery</td>
-			<td>{{report.edd}}</td>
-		</tr>
-		<tr>
-			<td>Placental localization</td>
-			<td>{{report.pl}}</td>
-		</tr>
-		<tr>
-			<td>Gestational age</td>
-			<td>{{report.gage}}</td>
-		</tr>
-		<tr>
-			<td>Fetal Heart beat</td>
-			<td>{{report.fhb}}</td>
-		</tr>
-		<tr>
-			<td>Fetal Movement/Foetal Cardiac Pulsation </td>
-			{% if report.fm == "1" %}
-			<td>Yes</td>
-			{% else %}
-			<td>No</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td>Presentation</td>
-			<td>{{report.presentation}}</td>
-		</tr>
-		<tr>
-			<td>Liquor  volume</td>
-			<td>{{report.lv}}</td>
-		</tr>
-		<tr>
-			<td>Diabetes </td>
-			{% if report.diabetis == "1" %}
-			<td>Yes</td>
-			{% else %}
-			<td>No</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td>Previous Czerian birth</td>
-			{% if report.precz == "1" %}
-			<td>Yes</td>
-			{% else %}
-			<td>No</td>
-			{% endif %}
-		</tr>
-		
+      <tr>
+        <td>Safe</td>
+        {% if report.safe == "1" %}
+        <td>Yes</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
+      </tr>
+      <tr>
+        <td>Uterus</td>
+        <td>{{report.uterus}}</td>
+      </tr>
+      <tr>
+        <td>Fetus</td>
+        <td>{{report.fetus}}</td>
+      </tr>
+      <tr>
+        <td>Biparietal diameter</td>
+        <td>{{report.bpd}}</td>
+      </tr>
+      <tr>
+        <td>Crown-rump-length</td>
+        <td>{{report.crl}}</td>
+      </tr>
+      <tr>
+        <td>Femur length</td>
+        <td>{{report.fl}}</td>
+      </tr>
+      <tr>
+        <td>Abdominal circumference</td>
+        <td>{{report.ac}}</td>
+      </tr>
+      <tr>
+        <td>Estimated fetal weight</td>
+        <td>{{report.efw}}</td>
+      </tr>
+      <tr>
+        <td>Expected date of delivery</td>
+        <td>{{report.edd}}</td>
+      </tr>
+      <tr>
+        <td>Placental localization</td>
+        <td>{{report.pl}}</td>
+      </tr>
+      <tr>
+        <td>Gestational age</td>
+        <td>{{report.gage}}</td>
+      </tr>
+      <tr>
+        <td>Fetal Heart beat</td>
+        <td>{{report.fhb}}</td>
+      </tr>
+      <tr>
+        <td>Fetal Movement</td>
+        <td>{{report.fm}}</td>
+      </tr>
+      <tr>
+        <td>Amniotic Fluid Volume</td>
+        <td>{{report.afv}}</td>
+      </tr>
+      <tr>
+        <td>Placental Maturity/Grading</td>
+        <td>{{report.pm}}</td>
+      </tr>
+      <tr>
+        <td>Fetal Movement/Foetal Cardiac Pulsation</td>
+        {% if report.fcp == "1" %}
+        <td>Yes</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
+      </tr>
+      <tr>
+        <td>Presentation</td>
+        <td>{{report.presentation}}</td>
+      </tr>
+      <tr>
+        <td>Liquor volume</td>
+        <td>{{report.lv}}</td>
+      </tr>
+      <tr>
+        <td>Diabetes</td>
+        {% if report.diabetis == "1" %}
+        <td>Yes</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
+      </tr>
+      <tr>
+        <td>Previous Czerian birth</td>
+        {% if report.precz == "1" %}
+        <td>Yes</td>
+        {% else %}
+        <td>No</td>
+        {% endif %}
+      </tr>
     </tbody>
   </table>
-  
 </div>
 {% endblock %}
