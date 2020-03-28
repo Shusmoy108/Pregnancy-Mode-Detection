@@ -129,6 +129,14 @@
         <td>No</td>
         {% endif %}
       </tr>
+      <tr>
+        <td>Doctor's Opinion</td>
+        {% if report.do == "1" %}
+        <td>Normal</td>
+        {% else %}
+        <td>Czerian</td>
+        {% endif %}
+      </tr>
     </tbody>
   </table>
 </div>

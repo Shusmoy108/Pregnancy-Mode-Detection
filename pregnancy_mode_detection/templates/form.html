@@ -450,7 +450,30 @@
         <label class="custom-control-label" for="PC2">No</label>
       </div>
     </div>
-    <small class="text-danger">{{err.precz}}</small><br />
+    <small class="text-danger">{{err.precz}}</small>
+    <div class="form-group">
+      <label for="PC">Doctor's Opinion:</label>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="DO1"
+          name="DO"
+          value="1"
+        />
+        <label class="custom-control-label" for="DO1">Normal</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input
+          type="radio"
+          class="custom-control-input"
+          id="DO2"
+          name="DO"
+          value="0"
+        />
+        <label class="custom-control-label" for="DO2">Czerian</label>
+      </div>
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

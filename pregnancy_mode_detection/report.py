@@ -1,5 +1,5 @@
 class Report:
-    def __init__(self, pname, hname, age, uterus, fetus, bpd, crl, fl, ac, efw, edd, pl, gage, fhb, fcp, presentation, lv, diabetis, precz, pm, afv, fm):
+    def __init__(self, pname, hname, age, uterus, fetus, bpd, crl, fl, ac, efw, edd, pl, gage, fhb, fcp, presentation, lv, diabetis, precz, pm, afv, fm, do):
         self.pname = pname
         self.hname = hname
         self.age = age
@@ -22,6 +22,7 @@ class Report:
         self.pm = pm
         self.afv = afv
         self.fm = fm
+        self.do = do
         self.safe = "X"
         self.controlword = ""
 
@@ -132,5 +133,5 @@ class Report:
             error["diabetis"] = "You must answer about diabetis"
         if(self.precz == None):
             error["precz"] = "You must answer about previous czerian birth"
-        print(error)
+        # print(error)
         return error

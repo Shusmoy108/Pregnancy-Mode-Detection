@@ -30,7 +30,7 @@ def showreport(request):
     reports.clear()
     for r in x:
         rep = Report(r['pname'], r['hname'], r['age'], r['uterus'], r['fetus'], r['bpd'], r['crl'], r['fl'], r['ac'],
-                     r['efw'], r['edd'], r['pl'], r['gage'], r['fhb'], r['fm'], r['presentation'], r['lv'], r['diabetis'], r['precz'], r['pm'], r['afv'], r['fm'])
+                     r['efw'], r['edd'], r['pl'], r['gage'], r['fhb'], r['fm'], r['presentation'], r['lv'], r['diabetis'], r['precz'], r['pm'], r['afv'], r['fm'], r['do'])
         rep.controlword = r['controlword']
         rep.id = r['_id']
         rep.safe = r['safe']
@@ -120,7 +120,7 @@ def addreport(request):
         # print(r.get('FHB'))
         # print(r.get('pname')+r.get('hname')+r.get('age')+r.get('uterus')+r.get('fetus')+r.get('BPD')+r.get('CRL')+r.get('FL')+r.get('AC')+r.get('EFW')+r.get('EDD')+r.get('PL')+r.get('gage')+r.get('FHB')+r.get('FM')+r.get('presentation')+r.get('LV')+r.get('Diabetis')+r.get('PC'))
         rep = Report(r.get('pname'), r.get('hname'), r.get('age'), r.get('uterus'), r.get('fetus'), r.get('BPD'), r.get('CRL'), r.get('FL'), r.get('AC'), r.get('EFW'), r.get(
-            'EDD'), r.get('PL'), r.get('gage'), r.get('FHB'), r.get('FM'), r.get('presentation'), r.get('LV'), r.get('Diabetis'), r.get('PC'), r.get('PM'), r.get('AFV'), r.get('FM2'))
+            'EDD'), r.get('PL'), r.get('gage'), r.get('FHB'), r.get('FM'), r.get('presentation'), r.get('LV'), r.get('Diabetis'), r.get('PC'), r.get('PM'), r.get('AFV'), r.get('FM2'), r.get('DO'))
 
         err = rep.validate()
         # print(err)
